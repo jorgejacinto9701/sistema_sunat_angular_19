@@ -2,10 +2,10 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppSettings } from '../../app.settings';
-import { Tarea } from '../models/dataCatalogo.model';
+import { Tarea } from '../models/tarea.model';
 
 
-const baseUrlCrudDataCatalogo = AppSettings.API_ENDPOINT + '/tarea';
+const baseUrlCrudDataCatalogo = AppSettings.API_ENDPOINT + '/crudTarea';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +25,8 @@ export class TareaService {
   eliminarTarea(id:number):Observable<any>{
     return this.http.delete(baseUrlCrudDataCatalogo+"/eliminaTarea/"+id);
   }
-  consultarTarea(filtro:string):Observable<any>{
+  listaTarea(filtro:string):Observable<any>{
+    console.log("filtro",filtro);
     return this.http.get(baseUrlCrudDataCatalogo+"/listaTareaPorNombreLike/"+ filtro);
   }
 
