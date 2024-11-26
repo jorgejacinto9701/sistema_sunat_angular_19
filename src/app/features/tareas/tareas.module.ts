@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessagesModule } from 'primeng/messages';
 import { MessageModule } from 'primeng/message';
 import { RadioButtonModule } from 'primeng/radiobutton';
+import { LogoutComponent } from '../../shared/components/logout/logout.component';
 
 
 
@@ -18,12 +19,12 @@ import { RadioButtonModule } from 'primeng/radiobutton';
   declarations: [
     TareaComponent,
     TareaListComponent,
-    TareaCreateComponent,
+    TareaCreateComponent
     
   ],
   imports: [
     CommonModule,
-    FormsModule,
+    FormsModule
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports:[]

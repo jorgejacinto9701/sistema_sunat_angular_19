@@ -1,0 +1,39 @@
+import { Component } from '@angular/core';
+import { AuthService } from '../../../core/services/auth/auth.service';
+import { Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrl: './login.component.css',
+  standalone: false
+
+})
+export class LoginComponent {
+  loginForm: FormGroup;
+  errorMessage: string | null = null;
+ 
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(10)]]
+    });
+  }
+ 
+  async onSubmit() {
+    if (this.loginForm.valid) {
+      const { email, password } = this.loginForm.value;
+      try {
+        const token = await this.authService.login(email, password);
+        localStorage.setItem('token', token || '');
+        console.log('Inicio de sesión exitoso. Token:', token);
+        this.router.navigate(['/tareas']);
+        // Redirige o realiza acciones adicionales después del inicio de sesión
+      } catch (error) {
+        this.errorMessage = 'Error al iniciar sesión. Intente de nuevo.';
+        console.error('Error al iniciar sesión:', error);
+      }
+    }
+  }
+}

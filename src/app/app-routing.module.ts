@@ -5,18 +5,30 @@ import { Tarea } from './core/models/tarea.model';
 import { TareaListComponent } from './features/tareas/tarea-list/tarea-list.component';
 import { TareaCreateComponent } from './features/tareas/tarea-create/tarea-create.component';
 import { AuthGuard } from './core/guardians/auth.guard';
+import { LoginComponent } from './shared/components/login/login.component';
+import { LogoutComponent } from './shared/components/logout/logout.component';
 
 const routes: Routes = [
   {
-    path:'', redirectTo:'/tareas', pathMatch:'full'
+    path:'', redirectTo:'/login', pathMatch:'full'
   },
   {
     path:'tareas',
     component:TareaListComponent,
+    canActivate:[AuthGuard],
     children:[
       { path:'list', component:TareaListComponent },
       { path:'create', component:TareaCreateComponent }
     ]
+  },
+  {
+    path:'login',
+    component:LoginComponent,
+  },
+  {
+    path:'logout',
+    component:LogoutComponent,
+    canActivate:[AuthGuard],
   }
 
 ];
