@@ -28,7 +28,7 @@ export class LoginComponent {
         const token = await this.authService.login(email, password);
         localStorage.setItem('token', token || '');
         console.log('Inicio de sesión exitoso. Token:', token);
-        this.router.navigate(['/tareas']);
+        this.router.navigate(['/tareas/list']);
         // Redirige o realiza acciones adicionales después del inicio de sesión
       } catch (error) {
         this.errorMessage = 'Error al iniciar sesión. Intente de nuevo.';

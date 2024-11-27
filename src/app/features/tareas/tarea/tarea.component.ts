@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-tarea',
   templateUrl: './tarea.component.html',
   styleUrl: './tarea.component.css',
-  imports: [CommonModule]
+  standalone: false
 })
 export class TareaComponent {
 

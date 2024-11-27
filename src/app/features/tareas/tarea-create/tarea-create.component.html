@@ -1,0 +1,27 @@
+<div class="tarea-container">
+
+    <form [formGroup]="tareaForm" >
+
+        <div>
+            <label for="descripcion">Descripción:</label>
+            <input id="descripcion" pInputText formControlName="descripcion" />
+            <p-message *ngIf="tareaForm.get('descripcion')?.invalid && tareaForm.get('descripcion')?.touched" severity="error" text="El correo electrónico es inválido."></p-message>
+        </div>
+        <div>
+            <label for="fechaVigencia">Fecha Vigencia:</label>
+            <p-calendar id="fechaVigencia" formControlName="fechaVigencia"   dateFormat="yy-mm-dd"/>
+            <p-message *ngIf="tareaForm.get('fechaVigencia')?.invalid && tareaForm.get('fechaVigencia')?.touched" severity="error" text="La fecha de Vigencia es requerida."></p-message>
+        </div>
+        <div>
+            <label for="prioridad">Prioridad:</label>
+            <p-dropdown  [options]="prioridad" formControlName="prioridad"    id="prioridad"  placeholder="Seleccione Prioridad" />
+        </div>
+        <div>
+            <label for="categoría">Categoría:</label>
+            <p-dropdown  [options]="categoria"  formControlName="categoria"  id="categoría"   placeholder="Seleccione Categoría" />
+        </div>
+
+        <button pButton type="submit" (click)="registra()" label="Registrar" [disabled]="tareaForm.invalid"></button>
+        <p-message *ngIf="errorMessage" severity="error" text="{{ errorMessage }}"></p-message>
+
+</form>

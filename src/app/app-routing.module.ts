@@ -14,11 +14,11 @@ const routes: Routes = [
   },
   {
     path:'tareas',
-    component:TareaListComponent,
-    canActivate:[AuthGuard],
+    component:TareaComponent,
     children:[
       { path:'list', component:TareaListComponent },
-      { path:'create', component:TareaCreateComponent }
+      { path:'create', component:TareaCreateComponent },
+      { path:'update', component:TareaCreateComponent }
     ]
   },
   {

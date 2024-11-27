@@ -1,11 +1,15 @@
-<h2>Lista de Tareas</h2>
+
+
+<button pButton type="submit" label="Crear Tarea" (click)="crearTarea()"></button>
 
 <p-table [value]="tareas" >
     <ng-template pTemplate="header">
         <tr>
-            <th>Code</th>
-            <th>Name</th>
-            <th>Category</th>
+            <th>Código</th>
+            <th>Descripción</th>
+            <th>Vigencia</th>
+            <th>Prioridad</th>
+            <th>Categoría</th>
             <th></th>
             
         </tr>
@@ -16,9 +20,11 @@
             <td>{{ obj.idTarea }}</td>
             <td>{{ obj.descripcion }}</td>
             <td>{{ obj.fechaVigencia }}</td>
+            <td>{{ obj.prioridad }}</td>
+            <td>{{ obj.categoria }}</td>
             <td class="col-content-btns">
-                <p-button class="btn-editar" icon="pi pi-pencil" pTooltip="Editar" tooltipPosition="bottom"></p-button>
-                <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="bottom" ></p-button>
+                <p-button class="btn-editar" icon="pi pi-pencil" pTooltip="Editar" (click)="actualizaTarea(obj.idTarea)" tooltipPosition="bottom"></p-button>
+                <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="bottom" (click)="eliminaTarea(obj.idTarea)" ></p-button>
             </td>  
         </tr>
     </ng-template>

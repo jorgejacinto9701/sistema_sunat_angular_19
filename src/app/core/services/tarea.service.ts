@@ -17,6 +17,7 @@ export class TareaService {
 
   
   registrarTarea(data:Tarea):Observable<any>{
+    console.log("filtro",data);
     return this.http.post(baseUrlCrudDataCatalogo+"/registraTarea", data);
   }
   actualizarTarea(data:Tarea):Observable<any>{

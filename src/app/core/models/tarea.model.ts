@@ -7,5 +7,7 @@ export class Tarea {
     descripcion?: string;
     estado?: number;
     fechaVigencia?:Date;
-    fechaRegistro?:Date;
+    categoria?:string
+    prioridad?:string
+  
 }
