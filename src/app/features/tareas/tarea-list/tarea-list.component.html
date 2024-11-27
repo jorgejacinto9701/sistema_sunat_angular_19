@@ -1,7 +1,7 @@
 
 
 <button pButton type="submit" label="Crear Tarea" (click)="crearTarea()"></button>
-
+<!--
 <p-table [value]="tareas" >
     <ng-template pTemplate="header">
         <tr>
@@ -29,4 +29,44 @@
         </tr>
     </ng-template>
 </p-table>
+-->
+<p-table [value]="tareas" [tableStyle]="{'min-width': '60rem'}"
+         [globalFilterFields]="['categoria']">
+    
+    <ng-template pTemplate="header">
+        <tr>
+            <th pSortableColumn="idTarea" style="width:20%">
+                Código <p-sortIcon field="idTarea" />
+            </th>
+            <th pSortableColumn="descripcion" style="width:20%">
+                Descripción <p-sortIcon field="descripcion" />
+            </th>
+            <th pSortableColumn="fechaVigencia" style="width:20%">
+                Vigencia <p-sortIcon field="fechaVigencia" />
+            </th>
+            <th pSortableColumn="prioridad" style="width:20%">
+                Prioridad <p-sortIcon field="prioridad" />
+            </th>
+            <th pSortableColumn="categoria" style="width:20%">
+                Categoría <p-sortIcon field="categoria" />
+            </th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-obj>
+        <tr>
+            <td>{{ obj.idTarea }}</td>
+            <td>{{ obj.descripcion }}</td>
+            <td>{{ obj.fechaVigencia }}</td>
+            <td>{{ obj.prioridad }}</td>
+            <td>{{ obj.categoria }}</td>
+            <td class="col-content-btns">
+                <p-button class="btn-editar" icon="pi pi-pencil" pTooltip="Editar" (click)="actualizaTarea(obj.idTarea)" tooltipPosition="bottom"></p-button>
+                <p-button icon="pi pi-trash" pTooltip="Excluir" tooltipPosition="bottom" (click)="eliminaTarea(obj.idTarea)" ></p-button>
+            </td>  
+        </tr>
+    </ng-template>
+</p-table>
+
+
 
