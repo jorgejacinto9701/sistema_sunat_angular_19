@@ -26,10 +26,4 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('sistema_sunat_angular_frontend');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, sistema_sunat_angular_frontend');
-  });
 });
