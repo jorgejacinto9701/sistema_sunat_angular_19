@@ -13,6 +13,7 @@ export class TareaListComponent {
 
   tareas: Tarea[] = [];
   errorMessage: string | null = null;
+  categoriaes!: any[];
 
   constructor(private tareaService: TareaService, private router: Router) {
 
@@ -28,6 +29,11 @@ export class TareaListComponent {
         console.error('Error al obtener productos:', err);
       }
     });
+
+    this.categoriaes = [
+      { label: 'Personales', value: 'Personales' },
+      { label: 'Laborales', value: 'Laborales' }
+  ];
   }
 
   crearTarea(){
