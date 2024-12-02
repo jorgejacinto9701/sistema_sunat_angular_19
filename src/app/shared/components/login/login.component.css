@@ -1,11 +1,55 @@
+/* Estilos generales */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
 
- 
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
- 
-  button {
-    margin-top: 10px; /* Añade espacio superior al botón */
-  }
-  
+h1 {
+  text-align: center;
+}
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  background-image: url('{{ backgroundImage }}');
+}
+
+.login-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-box {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.login-box img {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.login-box h2 {
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+}
+
+button {
+  margin-top: 10px; /* Añade espacio superior al botón */
+  width: 100%;
+}
