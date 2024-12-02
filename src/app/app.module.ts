@@ -20,7 +20,7 @@ import { TareasModule } from './features/tareas/tareas.module';
   declarations: [
     AppComponent,
     LoginComponent,
-    LogoutComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
