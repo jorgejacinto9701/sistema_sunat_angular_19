@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../../../core/services/auth/auth.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -23,7 +23,9 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private imageService: ImageService
+    private imageService: ImageService,
+    private renderer: Renderer2,
+    private el: ElementRef
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -33,6 +35,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadImages();
+    this.renderer.setStyle(this.el.nativeElement.querySelector('.login-container'), 'background-image', `url(${this.backgroundImage})`);
   }
 
   loadImages(): void {
